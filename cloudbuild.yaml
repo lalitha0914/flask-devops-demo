@@ -1,0 +1,27 @@
+steps:
+
+# Build Docker Image
+- name: 'gcr.io/cloud-builders/docker'
+
+  args:
+    - 'build'
+    - '-t'
+    - 'asia-south1-docker.pkg.dev/project-d479dbab-4622-4305-b61/flask-repo/flask-app:$SHORT_SHA'
+    - '.'
+
+# Push Image
+- name: 'gcr.io/cloud-builders/docker'
+
+  args:
+    - 'push'
+    - 'asia-south1-docker.pkg.dev/$PROJECT_ID/flask-repo/flask-app:$SHORT_SHA'
+
+# Deploy to GKE
+- name: 'gcr.io/cloud-builders/gke-deploy'
+
+  args:
+    - 'run'
+    - '--filename=deployment.yaml'
+    - '--image=asia-south1-docker.pkg.dev/$PROJECT_ID/flask-repo/flask-app:$SHORT_SHA'
+    - '--location=asia-south1'
+    - '--cluster=flask-cluster'
