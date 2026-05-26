@@ -20,7 +20,7 @@ spec:
       containers:
       - name: flask-app
 
-        image: IMAGE_NAME
+        image: asia-south1-docker.pkg.dev/project-d479dbab-4622-4305-b61/flask-repo/flask-app:v1
 
         ports:
         - containerPort: 8080
