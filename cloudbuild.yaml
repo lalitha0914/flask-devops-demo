@@ -22,7 +22,7 @@ steps:
   args:
     - 'run'
     - '--filename=deployment.yaml'
-    - '--image=asia-south1-docker.pkg.dev/$PROJECT_ID/flask-repo/flask-app:$SHORT_SHA'
+    - '--image=asia-south1-docker.pkg.dev/project-d479dbab-4622-4305-b61/flask-repo/flask-app:$SHORT_SHA'
     - '--location=asia-south1'
     - '--cluster=flask-cluster'
 options:
