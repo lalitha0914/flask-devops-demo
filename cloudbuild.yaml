@@ -26,4 +26,4 @@ steps:
     - '--location=asia-south1'
     - '--cluster=flask-cluster'
   options:
-  logging: CLOUD_LOGGING_ONLY    
+    logging: CLOUD_LOGGING_ONLY    
