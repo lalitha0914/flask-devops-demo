@@ -25,5 +25,5 @@ steps:
     - '--image=asia-south1-docker.pkg.dev/$PROJECT_ID/flask-repo/flask-app:$SHORT_SHA'
     - '--location=asia-south1'
     - '--cluster=flask-cluster'
-  options:
-    logging: CLOUD_LOGGING_ONLY    
+options:
+  logging: CLOUD_LOGGING_ONLY    
