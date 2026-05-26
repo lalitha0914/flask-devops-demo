@@ -5,21 +5,21 @@ steps:
   args:
     - 'build'
     - '-t'
-    - 'asia-south1-docker.pkg.dev/$PROJECT_ID/flask-repo/flask-app'
+    - 'asia-south1-docker.pkg.dev/project-d479dbab-4622-4305-b61/flask-repo/flask-app'
     - '.'
 
 # Push Docker image
 - name: 'gcr.io/cloud-builders/docker'
   args:
     - 'push'
-    - 'asia-south1-docker.pkg.dev/$PROJECT_ID/flask-repo/flask-app'
+    - 'asia-south1-docker.pkg.dev/project-d479dbab-4622-4305-b61/flask-repo/flask-app'
 
 # Deploy to GKE
 - name: 'gcr.io/cloud-builders/gke-deploy'
   args:
     - 'run'
     - '--filename=deployment.yaml'
-    - '--image=asia-south1-docker.pkg.dev/$PROJECT_ID/flask-repo/flask-app'
+    - '--image=asia-south1-docker.pkg.dev/project-d479dbab-4622-4305-b61/flask-repo/flask-app'
     - '--location=asia-south1'
     - '--cluster=flask-cluster'
 
@@ -27,4 +27,4 @@ options:
   logging: CLOUD_LOGGING_ONLY
 
 images:
-  - 'asia-south1-docker.pkg.dev/$PROJECT_ID/flask-repo/flask-app'
+  - 'asia-south1-docker.pkg.dev/project-d479dbab-4622-4305-b61/flask-repo/flask-app'
